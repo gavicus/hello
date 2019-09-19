@@ -1,0 +1,7 @@
+td.title-link {
+  cursor: pointer;
+  &:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+}

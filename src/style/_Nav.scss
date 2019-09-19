@@ -1,0 +1,22 @@
+.nav-wrapper {
+  padding-left: 10px;
+  background-color: #eeeeee;
+
+  .nav-button {
+    outline: 0;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid white;
+
+    &:hover {
+      border: 1px solid #ddeeff;
+    }
+
+    &.active {
+      background-color: #ddeeff;
+      border: 1px solid #ddeeff;
+    }
+  }
+}
+

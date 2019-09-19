@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font: 13px sans-serif;
+  font-weight: 200;
+
+  .page-wrapper > div {
+    padding: 10px;
+  }
+}
+
+@import '_Nav.scss';
+@import '_Create.scss';
+@import '_List.scss';
+@import '_View.scss';
+
