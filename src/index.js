@@ -17,6 +17,7 @@ const Main = () => {
   const [ page, setPage ] = useState(startPage);
   const [ editData, setEditData ] = useState(null);
   const [ viewKey, setViewKey ] = useState(startKey);
+  const [ viewStack, setViewStack ] = useState([]);
 
   const handleEdit = data => {
     setEditData(data);
@@ -29,7 +30,16 @@ const Main = () => {
   };
 
   const handleView = key => {
+    setViewStack([...viewStack, viewKey]);
     setViewKey(parseInt(key));
+    setPage('view');
+  };
+
+  const handleViewBack = () => {
+    const lastIndex = viewStack.length-1;
+    const targetKey = viewStack[lastIndex];
+    setViewStack(viewStack.slice(0, lastIndex));
+    setViewKey(parseInt(targetKey));
     setPage('view');
   };
 
@@ -50,7 +60,14 @@ const Main = () => {
       <Nav tabs={tabs} onChange={handleNavChange} />
       <div className="page-wrapper">
         { page === 'edit' && <Edit data={editData} onEditDone={handleEditDone}/> }
-        { page === 'view' && <View onEdit={handleEdit} viewKey={viewKey} onChangeView={handleView} /> }
+        { page === 'view' &&
+          <View
+            onEdit={handleEdit}
+            viewKey={viewKey}
+            onChangeView={handleView}
+            onBack={handleViewBack}
+          />
+        }
         { page === 'list' && <List onView={handleView}/> }
         { page === 'create' && <Create onCreate={handleCreate} /> }
         { page === 'file' && <File /> }

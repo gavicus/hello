@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import database from './data.js';
 import Entry from './Entry.js';
 
-const View = ({viewKey, onEdit, onChangeView}) => {
+const View = ({viewKey, onEdit, onChangeView, onBack}) => {
   const [ data, setData ] = useState({});
 
   const db = database();
@@ -55,6 +55,7 @@ const View = ({viewKey, onEdit, onChangeView}) => {
         <div>
 
         <button onClick={() => onEdit(data)}>edit</button>
+        <button onClick={onBack}>back</button>
 
         <ul className="detail-list">
           <li> <label>title:</label><span>{data.value.title}</span> </li>
