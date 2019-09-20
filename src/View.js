@@ -32,7 +32,7 @@ const View = ({viewKey, onEdit, onChangeView, onBack}) => {
     let keys = 0;
 
     const altered = parts.map(part => {
-      if (/^<(\d+):([\w\s]+)>$/.exec(part)) { // if like "<1:text>"
+      if (/^<(\d+):(['-\w\s]+)>$/.exec(part)) { // if like "<1:text>"
         const [id,text] = part.substr(1,part.length-2).split(':');
         return (
           <button className="link-button" onClick={() => handleLinkClick(id)} key={++keys}>
