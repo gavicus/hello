@@ -12,7 +12,6 @@ import File from './File';
 const Main = () => {
   const startPage = 'view';
   const startKey = 1;
-  const caption = "";
   const tabs = [ 'home', 'view', 'list', 'create', 'file' ];
   const [ page, setPage ] = useState(startPage);
   const [ editData, setEditData ] = useState(null);
@@ -56,7 +55,6 @@ const Main = () => {
 
   return (
     <div>
-      <h3>{caption}</h3>
       <Nav tabs={tabs} onChange={handleNavChange} />
       <div className="page-wrapper">
         { page === 'edit' && <Edit data={editData} onEditDone={handleEditDone}/> }

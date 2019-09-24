@@ -25,6 +25,7 @@ const View = ({viewKey, onEdit, onChangeView, onBack}) => {
   const getBody = (text) => {
 
     const parts = text
+      .replace(/\n/g, '<br>')
       .replace(/</g, '|<')
       .replace(/>/g, '>|')
       .split('|');
